@@ -1,0 +1,54 @@
+﻿@page "/products"
+@inject HttpClient Http
+
+<h1>Products</h1>
+
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Vendor</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Vendor</td>
+                    <td>@product.Price</td>
+                    <td>@product.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table> 
+
+}
+
+@functions {
+    Product[] products;
+    
+    protected override async Task OnInitAsync()
+    {
+        products = await Http.GetJsonAsync<Product[]>("http://localhost:5000/products");
+    }
+
+    class Product
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Vendor { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+    }
+}
