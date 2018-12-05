@@ -1,9 +1,10 @@
 ﻿@page "/products"
-@inject HttpClient Http
+@using DShop.Blazor.Pages.Products.ViewModels
+@inject ProductsListViewModel vm;
 
 <h1>Products</h1>
 
-@if (products == null)
+@if (vm.Products == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -20,7 +21,7 @@ else
         </tr>
         </thead>
         <tbody>
-            @foreach (var product in products)
+            @foreach (var product in vm.Products)
             {
                 <tr>
                     <td>@product.Id</td>
@@ -36,19 +37,8 @@ else
 }
 
 @functions {
-    Product[] products;
-    
     protected override async Task OnInitAsync()
     {
-        products = await Http.GetJsonAsync<Product[]>("http://localhost:5000/products");
-    }
-
-    class Product
-    {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Vendor { get; set; }
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
+        await vm.OnInit();
     }
 }
