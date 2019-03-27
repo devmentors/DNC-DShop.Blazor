@@ -13,6 +13,7 @@ namespace DShop.Blazor.Shared.Config
             services.AddSingleton<MainLayoutComponent, MainLayoutComponent>();
             services.AddSingleton<IAuthService, AuthService>();
             services.AddSingleton<IIdentityService, IdentityService>();
+            services.AddSingleton<ICustomersService, CustomersService>();
             return services;
         }
     }

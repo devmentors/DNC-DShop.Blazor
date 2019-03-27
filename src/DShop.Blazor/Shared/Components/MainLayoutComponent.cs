@@ -7,11 +7,14 @@ namespace DShop.Blazor.Shared.Components
     {
         private readonly IAuthService _authService;
         private readonly IIdentityService _identityService;
+        private readonly ICustomersService _customersService;
 
-        public MainLayoutComponent(IAuthService authService, IIdentityService identityService)
+        public MainLayoutComponent(IAuthService authService, IIdentityService identityService, 
+            ICustomersService customersService)
         {
             _authService = authService;
             _identityService = identityService;
+            _customersService = customersService;
         }
 
         public async Task OnInit()
@@ -24,6 +27,7 @@ namespace DShop.Blazor.Shared.Components
                 await _identityService.SignUpAsync(identity);
                 var tokens = await _identityService.SignInAsync(identity);
                 await _authService.SetAccessTokenAsync(tokens.AccessToken);
+                await _customersService.CreateDefaultAsync();
             }
         }
     }

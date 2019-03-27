@@ -2,15 +2,15 @@ using System.Threading.Tasks;
 using DShop.Blazor.Pages.Products.Models;
 using DShop.Blazor.Pages.Products.Services;
 
-namespace DShop.Blazor.Pages.Products.ViewModels
+namespace DShop.Blazor.Pages.Products.Components
 {
-    public class ProductsListViewModel
+    public class ProductsListComponent
     {
         private readonly IProductsService _service;
 
         public Product[] Products;
 
-        public ProductsListViewModel(IProductsService service)
+        public ProductsListComponent(IProductsService service)
             => _service = service;
 
         public async Task OnInit()
