@@ -1,7 +1,8 @@
+@using DShop.Blazor.Shared.Components
 @using DShop.Blazor.Shared.Services
 
 @inherits BlazorLayoutComponent
-@inject IAuthService authService
+@inject MainLayoutComponent component
 
 <div class="sidebar">
     <NavMenu />
@@ -18,8 +19,7 @@
 </div>
 
 @functions {
+
     protected override async Task OnInitAsync()
-    {
-        await authService.SetAccessTokenAsync("asdsadsad");
-    }
+        => await component.OnInit();
 }
