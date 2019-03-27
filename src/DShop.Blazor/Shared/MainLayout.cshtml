@@ -1,4 +1,7 @@
+@using DShop.Blazor.Shared.Services
+
 @inherits BlazorLayoutComponent
+@inject IAuthService authService
 
 <div class="sidebar">
     <NavMenu />
@@ -13,3 +16,10 @@
         @Body
     </div>
 </div>
+
+@functions {
+    protected override async Task OnInitAsync()
+    {
+        await authService.SetAccessTokenAsync("asdsadsad");
+    }
+}

@@ -7,9 +7,9 @@ namespace DShop.Blazor.Pages.Products.Services
 {
     public class ProductsService : IProductsService
     {
-        private HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
 
-        private const string Url = "http://localhost:5000/products";
+        private const string Url = "http://localhost:5010/products";
 
         public ProductsService(HttpClient httpClient)
             => _httpClient = httpClient;
