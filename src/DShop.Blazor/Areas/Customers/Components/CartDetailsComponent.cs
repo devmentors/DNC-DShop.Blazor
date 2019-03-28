@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using DShop.Blazor.Areas.Customers.Models;
 using DShop.Blazor.Areas.Customers.Services;
+using DShop.Blazor.Areas.Products.Models;
 
 namespace DShop.Blazor.Areas.Customers.Components
 {
@@ -15,5 +16,11 @@ namespace DShop.Blazor.Areas.Customers.Components
 
         public async Task OnInit()
             => Cart = await _cartsService.GetAsync();
+
+        public async Task RemoveCartItem(CartItem cartItem)
+        {
+            await _cartsService.RemoveCartItemAsync(cartItem);
+            Cart.Items.Remove(cartItem);
+        }
     }
 }

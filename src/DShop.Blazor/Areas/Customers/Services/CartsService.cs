@@ -20,5 +20,8 @@ namespace DShop.Blazor.Areas.Customers.Services
 
         public Task AddProductAsync(Product product, int quantity)
             => PostAsync($"{Url}/items", new {ProductId = product.Id, Quantity = quantity});
+
+        public Task RemoveCartItemAsync(CartItem cartItem)
+            => DeleteAsync($"{Url}/items/{cartItem.ProductId}");
     }
 }

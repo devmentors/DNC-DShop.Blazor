@@ -19,6 +19,7 @@ else
             <th>Quantity</th>
             <th>Unit Price</th>
             <th>Total Price</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -29,13 +30,27 @@ else
                 <td>@cartItem.Quantity</td>
                 <td>@cartItem.UnitPrice</td>
                 <td>@cartItem.TotalPrice</td>
+                <td>
+                    <button type="button" class="btn btn-danger" onclick=@(() => component.RemoveCartItem(cartItem))>Remove</button>
+                </td>
             </tr>
         }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <strong>TOTAL PRICE: @component.Cart.TotalPrice $</strong>
+                </td>
+            @if (component.Cart.Items.Any())
+            {
+                <td>
+                    <button type="button" class="btn btn-primary" onclick=@(() => { })>Order now</button>
+                </td> 
+            }
+            </tr>
         </tbody>
     </table> 
-    <br>
-    <strong>TOTAL PRICE: @component.Cart.TotalPrice $</strong>
-
 }
 
 @functions {

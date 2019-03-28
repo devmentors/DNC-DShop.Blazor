@@ -8,5 +8,6 @@ namespace DShop.Blazor.Areas.Customers.Services
     {
         Task<Cart> GetAsync();
         Task AddProductAsync(Product product, int quantity);
+        Task RemoveCartItemAsync(CartItem cartItem);
     }
 }
