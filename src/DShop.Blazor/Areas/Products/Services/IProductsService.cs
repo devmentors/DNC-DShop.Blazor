@@ -5,6 +5,6 @@ namespace DShop.Blazor.Areas.Products.Services
 {
     public interface IProductsService
     {
-        Task<Product[]> GetProducts();
+        Task<Product[]> GetAsync();
     }
 }

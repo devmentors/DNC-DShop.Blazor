@@ -1,3 +1,4 @@
+using DShop.Blazor.Areas.Customers.Config;
 using DShop.Blazor.Areas.Products.Config;
 using DShop.Blazor.Shared.Config;
 using Microsoft.AspNetCore.Blazor.Builder;
@@ -11,13 +12,12 @@ namespace DShop.Blazor
         {
             services.RegisterShared();
             services.RegisterProductsArea();
+            services.RegisterCustomersArea();
         }
 
         public void Configure(IBlazorApplicationBuilder app)
         {
             app.AddComponent<App>("app");
-            
-            
         }
     }
 }

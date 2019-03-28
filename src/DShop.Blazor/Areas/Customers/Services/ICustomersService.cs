@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace DShop.Blazor.Shared.Services
+namespace DShop.Blazor.Areas.Customers.Services
 {
     public interface ICustomersService
     {

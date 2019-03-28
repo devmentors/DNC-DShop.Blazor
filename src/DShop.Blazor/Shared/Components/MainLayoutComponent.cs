@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using DShop.Blazor.Areas.Customers.Services;
 using DShop.Blazor.Shared.Services;
 
 namespace DShop.Blazor.Shared.Components

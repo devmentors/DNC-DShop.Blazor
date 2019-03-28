@@ -1,0 +1,46 @@
+@page "/cart"
+@using DShop.Blazor.Areas.Customers.Components
+@using DShop.Blazor.Areas.Products.Components
+@inject CartDetailsComponent component;
+
+<h1>Cart</h1>
+
+
+@if (component.Cart is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var cartItem in component.Cart.Items)
+        {
+            <tr>
+                <td>@cartItem.ProductName</td>
+                <td>@cartItem.Quantity</td>
+                <td>@cartItem.UnitPrice</td>
+                <td>@cartItem.TotalPrice</td>
+            </tr>
+        }
+        </tbody>
+    </table> 
+    <br>
+    <strong>TOTAL PRICE: @component.Cart.TotalPrice $</strong>
+
+}
+
+@functions {
+    protected override async Task OnInitAsync()
+    {
+        await component.OnInit();
+    }
+}

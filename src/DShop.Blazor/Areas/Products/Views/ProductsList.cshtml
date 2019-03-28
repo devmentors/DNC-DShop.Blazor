@@ -1,10 +1,10 @@
 ﻿@page "/products"
 @using DShop.Blazor.Areas.Products.Components
-@inject ProductsListComponent vm;
+@inject ProductsListComponent component;
 
 <h1>Products</h1>
 
-@if (vm.Products == null)
+@if (component.Products == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -18,10 +18,11 @@ else
             <th>Vendor</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
-            @foreach (var product in vm.Products)
+            @foreach (var product in component.Products)
             {
                 <tr>
                     <td>@product.Id</td>
@@ -29,6 +30,9 @@ else
                     <td>@product.Vendor</td>
                     <td>@product.Price</td>
                     <td>@product.Quantity</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" onclick=@(() => @component.AddProductToCart(product))>Add to cart</button>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -39,6 +43,6 @@ else
 @functions {
     protected override async Task OnInitAsync()
     {
-        await vm.OnInit();
+        await component.OnInit();
     }
 }
