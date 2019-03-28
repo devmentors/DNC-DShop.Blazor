@@ -1,0 +1,47 @@
+@page "/orders"
+@using DShop.Blazor.Areas.Products.Components
+
+<h1>Orders</h1>
+@* *@
+@* @if (component.Orders == null) *@
+@* { *@
+@*     <p><em>Loading...</em></p> *@
+@* } *@
+@* else *@
+@* { *@
+@*     <table class="table table-hover"> *@
+@*         <thead class="thead-dark"> *@
+@*         <tr> *@
+@*             <th>Id</th> *@
+@*             <th>Name</th> *@
+@*             <th>Vendor</th> *@
+@*             <th>Price</th> *@
+@*             <th>Quantity</th> *@
+@*             <th></th> *@
+@*         </tr> *@
+@*         </thead> *@
+@*         <tbody> *@
+@*         @foreach (var product in component.Products) *@
+@*         { *@
+@*             <tr> *@
+@*                 <td>@product.Id</td> *@
+@*                 <td>@product.Name</td> *@
+@*                 <td>@product.Vendor</td> *@
+@*                 <td>@product.Price</td> *@
+@*                 <td>@product.Quantity</td> *@
+@*                 <td> *@
+@*                     <button type="button" class="btn btn-primary" onclick=@(() => @component.AddProductToCart(product))>Add to cart</button> *@
+@*                 </td> *@
+@*             </tr> *@
+@*         } *@
+@*         </tbody> *@
+@*     </table>  *@
+@* *@
+@* } *@
+@* *@
+@* @functions { *@
+@*     protected override async Task OnInitAsync() *@
+@*     { *@
+@*         await component.OnInit(); *@
+@*     } *@
+@* } *@
