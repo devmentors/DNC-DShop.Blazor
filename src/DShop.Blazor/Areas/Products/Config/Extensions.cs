@@ -1,8 +1,8 @@
-using DShop.Blazor.Pages.Products.Components;
-using DShop.Blazor.Pages.Products.Services;
+using DShop.Blazor.Areas.Products.Components;
+using DShop.Blazor.Areas.Products.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DShop.Blazor.Pages.Products.Config
+namespace DShop.Blazor.Areas.Products.Config
 {
     public static class Extensions
     {

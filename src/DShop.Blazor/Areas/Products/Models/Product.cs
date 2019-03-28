@@ -1,6 +1,6 @@
 using System;
 
-namespace DShop.Blazor.Pages.Products.Models
+namespace DShop.Blazor.Areas.Products.Models
 {
     public class Product
     {

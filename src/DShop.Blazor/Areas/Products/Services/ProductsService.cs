@@ -1,9 +1,9 @@
 using System.Net.Http;
 using System.Threading.Tasks;
-using DShop.Blazor.Pages.Products.Models;
+using DShop.Blazor.Areas.Products.Models;
 using Microsoft.AspNetCore.Blazor;
 
-namespace DShop.Blazor.Pages.Products.Services
+namespace DShop.Blazor.Areas.Products.Services
 {
     public class ProductsService : IProductsService
     {

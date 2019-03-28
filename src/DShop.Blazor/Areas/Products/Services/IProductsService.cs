@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using DShop.Blazor.Pages.Products.Models;
+using DShop.Blazor.Areas.Products.Models;
 
-namespace DShop.Blazor.Pages.Products.Services
+namespace DShop.Blazor.Areas.Products.Services
 {
     public interface IProductsService
     {

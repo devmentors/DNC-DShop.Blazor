@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using DShop.Blazor.Pages.Products.Models;
-using DShop.Blazor.Pages.Products.Services;
+using DShop.Blazor.Areas.Products.Models;
+using DShop.Blazor.Areas.Products.Services;
 
-namespace DShop.Blazor.Pages.Products.Components
+namespace DShop.Blazor.Areas.Products.Components
 {
     public class ProductsListComponent
     {

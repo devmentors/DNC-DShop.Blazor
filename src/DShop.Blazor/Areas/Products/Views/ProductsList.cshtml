@@ -1,0 +1,44 @@
+﻿@page "/products"
+@using DShop.Blazor.Areas.Products.Components
+@inject ProductsListComponent vm;
+
+<h1>Products</h1>
+
+@if (vm.Products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Vendor</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in vm.Products)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Vendor</td>
+                    <td>@product.Price</td>
+                    <td>@product.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table> 
+
+}
+
+@functions {
+    protected override async Task OnInitAsync()
+    {
+        await vm.OnInit();
+    }
+}
