@@ -55,7 +55,7 @@ else
         }
         </tbody>
     </table>
-     if(component.OrderDetails.Status is "approved")
+     if(component.OrderDetails.Status is "approved" || component.OrderDetails.Status is "created")
      {
          <button type="button" class="btn btn-primary" onclick=@(() => @component.CompleteOrder())>Complete order</button>
          <button type="button" class="btn btn-danger" onclick=@(() => @component.CancelOrder())>Cancel order</button>

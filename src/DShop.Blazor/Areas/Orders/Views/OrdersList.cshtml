@@ -26,7 +26,9 @@ else
             <tr>
                 <td>@order.TotalAmount$</td>
                 <td>@order.Currency</td>
-                <td>@order.Status</td>
+                <td>
+                    <span class="@(order.Status is "approved"? "badge badge-primary" : order.Status is "canceled" ? "badge badge-warning" : "badge badge-success")">@order.Status</span>
+                </td>
                 <td>@order.ItemsCount</td>
                 <td>
                     <button type="button" class="btn btn-primary" onclick=@(() => @component.NavigateToOrderDetails(order))>Details</button>
