@@ -7,18 +7,18 @@ namespace DShop.Blazor.Shared.Services
 {
     public class AuthService : IAuthService
     {
-        private readonly LocalStorage _localStorage;
+        private readonly SessionStorage _storage;
         private const string AccessTokenKey = "access_token";
 
-        public AuthService(HttpClient httpClient, LocalStorage localStorage)
+        public AuthService(HttpClient httpClient, SessionStorage storage)
         {
-            _localStorage = localStorage;
+            _storage = storage;
         }
 
         public Task SetAccessTokenAsync(string accessToken)
-            => _localStorage.SetItem(AccessTokenKey, accessToken);
+            => _storage.SetItem(AccessTokenKey, accessToken);
 
         public Task<string> GetAccessTokenAsync()
-            => _localStorage.GetItem<string>(AccessTokenKey);
+            => _storage.GetItem<string>(AccessTokenKey);
     }
 }
