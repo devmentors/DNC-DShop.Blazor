@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -18,11 +19,14 @@ namespace DShop.Blazor.Areas.Orders.Services
         public Task<IEnumerable<Order>> GetAsync()
             => GetAsync<IEnumerable<Order>>(Url);
 
+        public Task<OrderDetails> GetDetailsAsync(Guid id)
+            => GetAsync<OrderDetails>($"{Url}/{id}");
+
         public Task CreateAsync()
-            => PostAsync(Url, null);
+            => PostAsync(Url, new {});
 
         public Task CompleteAsync(Order order)
-            => PostAsync($"{Url}/{order.Id}/complete", null);
+            => PostAsync($"{Url}/{order.Id}/complete", new {});
 
         public Task CancelAsync(Order order)
             => DeleteAsync($"{Url}/{order.Id}");

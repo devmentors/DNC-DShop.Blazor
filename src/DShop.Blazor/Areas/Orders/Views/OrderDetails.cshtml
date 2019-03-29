@@ -1,0 +1,73 @@
+@page "/orders/{Id:guid}"
+@using DShop.Blazor.Areas.Orders.Components
+@inject OrderDetailsComponent component
+
+<h1>Orders details</h1>
+@if (component.OrderDetails is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-sm">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Customer details:</strong>
+                </li>
+                <li class="list-group-item">@component.OrderDetails.Customer.FirstName</li>
+                <li class="list-group-item">@component.OrderDetails.Customer.LastName</li>
+                <li class="list-group-item">@component.OrderDetails.Customer.Email</li>
+                <li class="list-group-item">@component.OrderDetails.Customer.Address</li>
+                <li class="list-group-item">@component.OrderDetails.Customer.Country</li>
+            </ul>
+        </div>
+        <div class="col-sm">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <strong>Order details:</strong>
+                </li>
+                <li class="list-group-item">@component.OrderDetails.Status</li>
+                <li class="list-group-item">@component.OrderDetails.TotalAmount</li>
+                <li class="list-group-item">@component.OrderDetails.Currency</li>
+            </ul>
+        </div>
+    </div>
+   
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var orderItem in component.OrderDetails.Items)
+        {
+            <tr>
+                <td>@orderItem.Name</td>
+                <td>@orderItem.Quantity</td>
+                <td>@orderItem.UnitPrice</td>
+                <td>@orderItem.TotalPrice</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+     if(component.OrderDetails.Status is "approved")
+     {
+         <button type="button" class="btn btn-primary" onclick=@(() => @component.CompleteOrder())>Complete order</button>
+         <button type="button" class="btn btn-danger" onclick=@(() => @component.CancelOrder())>Cancel order</button>
+     }
+    
+}
+@functions {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    protected override async Task OnInitAsync()
+    {
+        await component.OnInit(Id);
+    }
+}

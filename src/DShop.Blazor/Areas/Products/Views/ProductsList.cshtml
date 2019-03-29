@@ -10,34 +10,23 @@
 }
 else
 {
-    <table class="table table-hover">
-        <thead class="thead-dark">
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Vendor</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-            @foreach (var product in component.Products)
-            {
-                <tr>
-                    <td>@product.Id</td>
-                    <td>@product.Name</td>
-                    <td>@product.Vendor</td>
-                    <td>@product.Price</td>
-                    <td>@product.Quantity</td>
-                    <td>
-                        <button type="button" class="btn btn-primary" onclick=@(() => @component.AddProductToCart(product))>Add to cart</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table> 
-
+    <div class="row">
+        @foreach (var product in component.Products)
+         {
+             <div class="col-4">
+                 <div class="card" style="width: 25rem;">
+                     <img class="card-img-top" src="https://www.faceysnursery.com.au/inc/uploads/assets/pawpaw1-300x201-286x180-c-default.jpg" alt="Card image cap">
+                     <div class="card-body">
+                         <h5 class="card-title">@product.Name</h5>
+                         <p class="card-text"><strong>Vendor:</strong> @product.Vendor</p>
+                         <p class="card-text"><strong>Price:</strong> @product.Price$</p>
+                         <p class="card-text"><strong>Quantity:</strong> @product.Quantity</p>
+                         <button type="button" class="btn btn-primary" onclick=@(() => component.AddProductToCart(product))>Add to cart</button>
+                     </div>
+                 </div>
+             </div>
+        }
+    </div>
 }
 
 @functions {

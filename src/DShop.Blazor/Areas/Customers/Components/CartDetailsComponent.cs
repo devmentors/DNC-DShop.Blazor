@@ -23,7 +23,9 @@ namespace DShop.Blazor.Areas.Customers.Components
         }
 
         public async Task OnInit()
-            => Cart = await _cartsService.GetAsync();
+        {
+            Cart = await _cartsService.GetAsync();
+        }
 
         public async Task RemoveCartItem(CartItem cartItem)
         {

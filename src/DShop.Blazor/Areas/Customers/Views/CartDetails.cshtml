@@ -45,7 +45,7 @@ else
             @if (component.Cart.Items.Any())
             {
                 <td>
-                    <button type="button" class="btn btn-primary" onclick=@(() => { })>Order now</button>
+                    <button type="button" class="btn btn-primary" onclick=@(() => component.CreateOrder())>Order now</button>
                 </td> 
             }
             </tr>
