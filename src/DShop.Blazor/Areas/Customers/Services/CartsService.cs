@@ -23,4 +23,4 @@ namespace DShop.Blazor.Areas.Customers.Services
         public Task RemoveCartItemAsync(CartItem cartItem)
             => DeleteAsync($"cart/items/{cartItem.ProductId}");
     }
-}
+} 
