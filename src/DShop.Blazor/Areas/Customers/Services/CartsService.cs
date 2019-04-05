@@ -21,6 +21,6 @@ namespace DShop.Blazor.Areas.Customers.Services
             => PostAsync("cart/items", new {ProductId = product.Id, Quantity = quantity});
 
         public Task RemoveCartItemAsync(CartItem cartItem)
-            => DeleteAsync("cart/items/{cartItem.ProductId}");
+            => DeleteAsync($"cart/items/{cartItem.ProductId}");
     }
 }
