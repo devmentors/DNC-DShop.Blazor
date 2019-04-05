@@ -15,7 +15,7 @@ namespace DShop.Blazor.Shared.Services
         public Identity CreateDefaultIdentity()
             => new Identity
             {
-                Email = $"{Guid.NewGuid()}@ttest.com",
+                Email = $"{Guid.NewGuid()}@mailinator.com",
                 Password = "devmentors"
             };
 
