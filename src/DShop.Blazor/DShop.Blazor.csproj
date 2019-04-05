@@ -13,6 +13,16 @@
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.7.0" PrivateAssets="all" />
     <DotNetCliToolReference Include="Microsoft.AspNetCore.Blazor.Cli" Version="0.7.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
-
+  <ItemGroup>
+    <EmbeddedResource Include=".\Environment\appsettings.dev.json" Condition="'$(Configuration)' == 'Debug'">
+      <LogicalName>appsettings.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include=".\Environment\appsettings.prod.json" Condition="'$(Configuration)' == 'Release'">
+      <LogicalName>appsettings.json</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  
 </Project>

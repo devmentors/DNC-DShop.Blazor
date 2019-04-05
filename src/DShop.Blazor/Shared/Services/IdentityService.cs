@@ -7,10 +7,8 @@ namespace DShop.Blazor.Shared.Services
 {
     public class IdentityService : HttpService, IIdentityService
     {
-        private const string Url = "http://localhost:5002";
-        
-        public IdentityService(HttpClient httpClient, IAuthService authService) 
-            : base(httpClient, authService)
+        public IdentityService(HttpClient httpClient, IAuthService authService, AppSettings settings) 
+            : base(httpClient, authService, settings)
         {
         }
         
@@ -22,9 +20,9 @@ namespace DShop.Blazor.Shared.Services
             };
 
         public Task SignUpAsync(Identity identity)
-            => PostAsync($"{Url}/sign-up", identity, authorized: false);
+            => PostIdentityAsync("sign-up", identity, authorized: false);
 
         public Task<IdentityTokens> SignInAsync(Identity identity)
-            => PostAsync<IdentityTokens>($"{Url}/sign-in", identity, authorized: false);
+            => PostIdentityAsync<IdentityTokens>("sign-in", identity, authorized: false);
     }
 }

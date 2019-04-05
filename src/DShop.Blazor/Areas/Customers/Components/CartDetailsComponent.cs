@@ -36,6 +36,7 @@ namespace DShop.Blazor.Areas.Customers.Components
         public async Task CreateOrder()
         {
             await _ordersService.CreateAsync();
+            await Task.Delay(1000);
             _uriHelper.NavigateTo("/orders");
         }
     }
